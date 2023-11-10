@@ -35,6 +35,9 @@ http://localhost:3000/persons
 ### search by firstname
 
 http://localhost:3000/persons/firstname?value=Matt
+or,
+
+http://localhost:3000/persons?key=firstname&value=Matt
 
 ### search by lastname
 

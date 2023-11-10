@@ -22,9 +22,34 @@ const server = http.createServer((req,res)=>{
     else if(route.startsWith('/styles/')) {
         sendFile(res,path.join(__dirname, route), 'text/css')
     }
-    else
-    {res.end();}
-})
+    else if(route.startsWith('/js/')){
+        sendFile(res,path.join(__dirname, route),'tex/javascript');
+    }
+    else{
+        let result=[];
+        if(route==='/persons'){
+            result=search();
+        }
+        else if(searchParams.has('value')){
+            const value=searchParams.get('value');
+            if(route==='/persons/firstname'){
+                result=search('firstname',value);
+            }
+            else if (route==='/persons/lastname'){
+                result=search('lastname',value);
+            }
+            else if (route==='/persons/age'){
+                result=search('age',value);
+            }
+        }
+        else {
+            result={message:'Key not found'}
+            res.writeHead(200, {'Content-Type':'application/json'});
+            res.end(JSON.stringify(result));
+        }
+    }// end of outer else
+    
+});
 
 server.listen(port,host, 
     ()=> console.log(`${host}:${port} serving....`));
