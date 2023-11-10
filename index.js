@@ -44,9 +44,10 @@ const server = http.createServer((req,res)=>{
         }
         else {
             result={message:'Key not found'}
-            res.writeHead(200, {'Content-Type':'application/json'});
-            res.end(JSON.stringify(result));
+          
         }
+        res.writeHead(200, {'Content-Type':'application/json'});
+        res.end(JSON.stringify(result));
     }// end of outer else
     
 });

@@ -9,5 +9,29 @@
   </head>
   <body>
     <h1>Person Data</h1>
+    <main>
+      <p>
+        <label for="key">Key:</label>
+        <input type="text" id="key" />
+      </p>
+      <p>
+        <label for="search">Value:</label>
+        <input type="text" id="search" />
+      </p>
+      <button id="submit">Submit</button>
+      <div id="resultset">
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Age</th>
+            </tr>
+          </thead>
+          <tbody id="resultarea"></tbody>
+        </table>
+      </div>
+      <p id="messagearea"></p>
+    </main>
   </body>
 </html>
